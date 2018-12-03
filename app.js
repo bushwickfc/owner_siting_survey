@@ -12,13 +12,18 @@ const submitButton = document.getElementById('submit');
 const postData = () => {
   const geometryLayers = featureGroup._layers;
   const geometryLayerKeys = Object.keys(geometryLayers);
+  const geometries = [];
 
-  if (!Object.keys(geometryLayerKeys).length) {
+  // If the user has not provided any data, reject the submission.
+  if (!geometryLayerKeys.length) {
     return false;
   }
 
-  geometryLayerKeys.forEach((leafletId) => {
-    console.log(geometryLayers[leafletId]);
+  // Encode each layer as a geoJSON.
+  geometryLayerKeys.forEach(leafletId => geometries.push(geometryLayers[leafletId].toGeoJSON()));
+
+  $.post('./owner_siting_survey.php', { geometries: geometries }, (response) => {
+    console.log(response);
   });
 };
 
@@ -31,15 +36,15 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/skwidbreth.044joc73/{z}/{x}/{y}.png'
   maxZoom: 18,
 }).addTo(map);
 
-////////////////////////////////
+/////////////////////////////////
 // Draw tool behavior
-////////////////////////////////
+/////////////////////////////////
 
 // Add the new geometry to the map.
 map.on('draw:created', e => featureGroup.addLayer(e.layer));
 
-////////////////////////////////
+/////////////////////////////////
 // DOM events
-////////////////////////////////
+/////////////////////////////////
 
 submitButton.addEventListener('click', postData);
