@@ -1,11 +1,11 @@
-CREATE DATABASE owner_siting_survey;
+CREATE DATABASE owners_db;
 
-\connect owner_siting_survey;
+\connect owners_db;
 
 CREATE EXTENSION postgis;
 
-CREATE TABLE geometries (
+CREATE TABLE owner_siting_survey (
     id         serial PRIMARY KEY,
-    geometry   varchar(255) NOT NULL,
+    geometry   polygon NOT NULL,
     created_at timestamp DEFAULT current_timestamp
 );
