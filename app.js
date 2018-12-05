@@ -1,8 +1,12 @@
 const map = L.map('map', {}).setView([40.705080, -73.928314], 15);
 const featureGroup = L.featureGroup().addTo(map);
 const drawControl = new L.Control.Draw({
+  // Disable all of the drawing tools, except for polygon.
   draw: {
-    circle: false,
+    marker:    false,
+    circle:    false,
+    polyline:  false,
+    rectangle: false,
   },
   edit: {
     featureGroup,
@@ -31,9 +35,9 @@ const postData = () => {
 // Map layer initialization
 /////////////////////////////////
 
-L.tileLayer('http://{s}.tiles.mapbox.com/v3/skwidbreth.044joc73/{z}/{x}/{y}.png', {
-  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
   maxZoom: 18,
+  attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 /////////////////////////////////
