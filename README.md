@@ -16,8 +16,21 @@ If the `owners_db` database does not yet exist, use `postgres` as the `DATABASE`
 In my local case,
 
 ```bash
-psql -U postgres -d owners_db -a -f /Users/darrenklein/Desktop/Darren/development/bushwickfc/o
-wner_siting_survey/schema.sql
+psql -U postgres -d owners_db -a -f /Users/darrenklein/Desktop/Darren/development/bushwickfc/owner_siting_survey/schema.sql
+```
+
+## Requirements
+
+In local development, this app requires a root-level `credentials.php` file, formatted like so:
+
+```php
+<?php
+    $password =   'password';
+    $username =   'username';
+    $servername = 'localhost';
+    $dbname =     'owners_db';
+?>
+
 ```
 
 ## Notes
@@ -25,3 +38,5 @@ wner_siting_survey/schema.sql
 This app's JavaScript has been (mostly) linted to ESLint's Airbnb base standard.
 
 https://gis.stackexchange.com/questions/60928/how-to-insert-a-geojson-polygon-into-a-postgis-table
+
+Locally, I'm running this app at http://bushwickfc.owner_siting_survey.local
