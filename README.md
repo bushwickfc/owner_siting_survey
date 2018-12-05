@@ -26,7 +26,7 @@ In local development, this app requires a root-level `credentials.php` file, for
 ```php
 <?php
     $password = 'password';
-    $user =     'postges';
+    $user =     'postgres';
     $host =     'localhost';
     $dbname =   'owners_db';
 ?>
@@ -39,3 +39,18 @@ This app's JavaScript has been (mostly) linted to ESLint's Airbnb base standard.
 https://gis.stackexchange.com/questions/60928/how-to-insert-a-geojson-polygon-into-a-postgis-table
 
 Locally, I'm running this app at http://bushwickfc.owner_siting_survey.local
+
+
+Example geoJSON, prepared for insert
+
+ST_TRANSFORM(ST_GeomFromGeoJSON('{
+"type":"Polygon",
+"coordinates":[[
+[-91.23046875,45.460130637921],
+[-79.8046875,49.837982453085],
+[-69.08203125,43.452918893555],
+[-88.2421875,32.694865977875],
+[-91.23046875,45.460130637921]
+]],
+"crs":{"type":"name","properties":{"name":"EPSG:4326"}}
+}'),3857)
