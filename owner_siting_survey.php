@@ -1,9 +1,11 @@
 <?php
-include 'credentials.php';
+include "credentials.php";
+
+pg_connect("host={$host} dbname={$dbname} user={$user} password={$password}");
 
 function handle_insert($geometry) {
-  $sql = 'INSERT INTO owner_siting_survey(geometry) values("hello")'
-  // echo json_encode($geometry);
+  echo json_encode($geometry);
+  // pg_query_params("INSERT INTO owner_siting_survey (geometry) VALUES ($1)", array($geometry));
 }
 
 function insert_records($geometries) {

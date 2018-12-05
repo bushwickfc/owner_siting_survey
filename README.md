@@ -25,12 +25,11 @@ In local development, this app requires a root-level `credentials.php` file, for
 
 ```php
 <?php
-    $password =   'password';
-    $username =   'username';
-    $servername = 'localhost';
-    $dbname =     'owners_db';
+    $password = 'password';
+    $user =     'postges';
+    $host =     'localhost';
+    $dbname =   'owners_db';
 ?>
-
 ```
 
 ## Notes
