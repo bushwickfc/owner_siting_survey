@@ -12,17 +12,11 @@ $crs->properties = $name;
 function handle_insert($geometry) {
   global $conn;
   global $crs;
-  $geometry->crs = $crs; // Not working correctly yet, but this is roughly the idea.
+  $geometry->crs = $crs; // Add crs to the geoJSON.
   $encoded_geom = json_encode($geometry);
-  $the_geom = "ST_GeomFromGeoJSON('{$encoded_geom}')";
-
-  $sql = "INSERT INTO owner_siting_survey (geometry) VALUES (ST_GeomFromGeoJSON('{$encoded_geom}'))";
+  $sql = "INSERT INTO owner_siting_survey (the_geom) VALUES (ST_GeomFromGeoJSON('{$encoded_geom}'))";
 
   pg_query($conn, $sql);
-
-  // echo $the_geom;
-
-  // pg_query_params($conn, "INSERT INTO owner_siting_survey (geometry) VALUES ($1)", array($the_geom));
 }
 
 function insert_records($features) {
