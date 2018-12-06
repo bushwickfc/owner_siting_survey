@@ -15,14 +15,25 @@ function handle_insert($geometry) {
   $geometry->crs = $crs; // Add crs to the geoJSON.
   $encoded_geom = json_encode($geometry);
   $sql = "INSERT INTO owner_siting_survey (the_geom) VALUES (ST_GeomFromGeoJSON('{$encoded_geom}'))";
-
-  pg_query($conn, $sql);
+  
+  return pg_query($conn, $sql);
 }
 
 function insert_records($features) {
+  $response = new stdClass;
+
   foreach ($features as $feature) {
-    handle_insert($feature->geometry);
+    if (!handle_insert($feature->geometry)) {
+      $response->status = "error";
+      $response->message = pg_last_error($conn);
+      echo json_encode($response);
+      return;
+    }
   }
+
+  $response->status = "ok";
+  $response->message = "Success!";
+  echo json_encode($response);
 };
 
 insert_records(json_decode($_POST["features"]));

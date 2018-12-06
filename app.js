@@ -3,16 +3,21 @@ const featureGroup = L.featureGroup().addTo(map);
 const drawControl = new L.Control.Draw({
   // Disable all of the drawing tools, except for polygon.
   draw: {
-    marker:    false,
-    circle:    false,
-    polyline:  false,
+    marker: false,
+    circle: false,
+    polyline: false,
     rectangle: false,
+    fillOpacity: 0.6,
   },
   edit: {
     featureGroup,
   },
 }).addTo(map);
 const submitButton = document.getElementById('submit');
+const handleResponse = (response) => {
+  makeResponseUI(response);
+  clearMap();
+}
 const postData = () => {
   const featureLayers = featureGroup._layers;
   const featureLayerKeys = Object.keys(featureLayers);
@@ -27,7 +32,7 @@ const postData = () => {
   featureLayerKeys.forEach(leafletId => features.push(featureLayers[leafletId].toGeoJSON()));
 
   $.post('./owner_siting_survey.php', { features: JSON.stringify(features) }, (response) => {
-    console.log(response);
+    return handleResponse(JSON.parse(response));
   });
 };
 
@@ -52,3 +57,18 @@ map.on('draw:created', e => featureGroup.addLayer(e.layer));
 /////////////////////////////////
 
 submitButton.addEventListener('click', postData);
+
+const makeResponseUI = ({ status, message }) => {
+  if (status === "ok") {
+    alert(message);
+  } else {
+    alert(message);
+  }
+}
+
+// Remove all of the features from the map.
+const clearMap = () => {
+    $.each(featureGroup._layers, function() {
+        featureGroup.removeLayer(this);
+    });
+}

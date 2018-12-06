@@ -26,31 +26,22 @@ In local development, this app requires a root-level `credentials.php` file, for
 ```php
 <?php
     $password = 'password';
-    $user =     'postgres';
-    $host =     'localhost';
-    $dbname =   'owners_db';
+    $user = 'postgres';
+    $host = 'localhost';
+    $dbname = 'owners_db';
 ?>
 ```
 
-## Notes
-
-This app's JavaScript has been (mostly) linted to ESLint's Airbnb base standard.
-
-https://gis.stackexchange.com/questions/60928/how-to-insert-a-geojson-polygon-into-a-postgis-table
+## Use
 
 Locally, I'm running this app at http://bushwickfc.owner_siting_survey.local
 
+## Notes
 
-Example geoJSON, prepared for insert
+### Polygon closing issue
 
-ST_TRANSFORM(ST_GeomFromGeoJSON('{
-"type":"Polygon",
-"coordinates":[[
-[-91.23046875,45.460130637921],
-[-79.8046875,49.837982453085],
-[-69.08203125,43.452918893555],
-[-88.2421875,32.694865977875],
-[-91.23046875,45.460130637921]
-]],
-"crs":{"type":"name","properties":{"name":"EPSG:4326"}}
-}'),3857)
+The drawn polygons are supposed to 'finish' when the user clicks the first point they added - however, this feature was not working out-of-the-box. See https://github.com/Leaflet/Leaflet.draw/issues/670 - basically, had to additionally import Polyline and Polygon classes.
+
+### Linting
+
+This app's JavaScript has been (mostly) linted to ESLint's Airbnb base standard.
