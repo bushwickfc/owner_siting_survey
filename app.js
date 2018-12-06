@@ -14,19 +14,19 @@ const drawControl = new L.Control.Draw({
 }).addTo(map);
 const submitButton = document.getElementById('submit');
 const postData = () => {
-  const geometryLayers = featureGroup._layers;
-  const geometryLayerKeys = Object.keys(geometryLayers);
-  const geometries = [];
+  const featureLayers = featureGroup._layers;
+  const featureLayerKeys = Object.keys(featureLayers);
+  const features = [];
 
   // If the user has not provided any data, reject the submission.
-  if (!geometryLayerKeys.length) {
+  if (!featureLayerKeys.length) {
     return false;
   }
 
   // Encode each layer as a geoJSON.
-  geometryLayerKeys.forEach(leafletId => geometries.push(geometryLayers[leafletId].toGeoJSON()));
+  featureLayerKeys.forEach(leafletId => features.push(featureLayers[leafletId].toGeoJSON()));
 
-  $.post('./owner_siting_survey.php', { geometries: geometries }, (response) => {
+  $.post('./owner_siting_survey.php', { features: JSON.stringify(features) }, (response) => {
     console.log(response);
   });
 };
@@ -44,7 +44,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
 // Draw tool behavior
 /////////////////////////////////
 
-// Add the new geometry to the map.
+// Add the new feature to the map.
 map.on('draw:created', e => featureGroup.addLayer(e.layer));
 
 /////////////////////////////////
