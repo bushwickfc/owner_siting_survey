@@ -14,6 +14,7 @@ const drawControl = new L.Control.Draw({
   },
 }).addTo(map);
 const submitButton = document.getElementById('submit');
+const fetchButton = document.getElementById('fetch');
 const handleResponse = (response) => {
   makeResponseUI(response);
   clearMap();
@@ -31,7 +32,7 @@ const postData = () => {
   // Encode each layer as a geoJSON.
   featureLayerKeys.forEach(leafletId => features.push(featureLayers[leafletId].toGeoJSON()));
 
-  $.post('./owner_siting_survey.php', { features: JSON.stringify(features) }, (response) => {
+  $.post('./php/insert.php', { features: JSON.stringify(features) }, (response) => {
     return handleResponse(JSON.parse(response));
   });
 };
@@ -57,7 +58,9 @@ map.on('draw:created', e => featureGroup.addLayer(e.layer));
 /////////////////////////////////
 
 submitButton.addEventListener('click', postData);
+fetchButton.addEventListener('click', getData);
 
+// TODO - refine this behavior.
 const makeResponseUI = ({ status, message }) => {
   if (status === "ok") {
     alert(message);
