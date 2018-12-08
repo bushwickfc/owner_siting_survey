@@ -1,4 +1,4 @@
-html, body{
+html, body {
 	height: 100%;
 	box-sizing: border-box;
 }
@@ -8,15 +8,52 @@ body {
 }
 
 .section {
-	margin: 10px 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.centered {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.leaflet-touch .leaflet-bar a {
+	width: 40px;
+	height: 40px;
+}
+
+.leaflet-draw-draw-polygon {
+	background-position: -24px 4px !important;
+}
+
+.leaflet-draw-edit-edit {
+	background-position: -205px 4px !important;
+}
+
+.leaflet-draw-edit-remove {
+	background-position: -235px 4px !important;
 }
 
 #map {
 	height: 600px;
+	width: 75%;
 	border: 3px solid black;
 }
 
 .leaflet-top.leaflet-left {
 	left: 20px;
 	top: 20px;
+}
+
+#submit {
+	background-color: #0098FF;
+	color:  #FFFFFF;
+	cursor: pointer;
+	border: none;
+	font-size: 30px;
+	padding: 5px 20px 5px 20px;
+}
+
+#submit:hover {
+	background-color: #007ACC;
 }
