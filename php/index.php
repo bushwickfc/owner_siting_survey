@@ -1,8 +1,7 @@
 <?php
 // Retrieve all of the geoJSONs.
-include "../credentials.php";
 
-$conn = pg_connect("host={$host} dbname={$dbname} user={$user} password={$password}");
+include "./conn.php";
 
 function fetch_records() {
 	global $conn;

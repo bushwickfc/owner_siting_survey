@@ -1,8 +1,8 @@
 <?php
 // Insert geoJSONs.
-include "../credentials.php";
 
-$conn = pg_connect("host={$host} dbname={$dbname} user={$user} password={$password}");
+include "./conn.php";
+
 // Construct the crs map, to be added to the incoming geoJSON data - {"type":"name","properties":{"name":"EPSG:4326"}}
 $crs = new stdClass;
 $name = new stdClass;
