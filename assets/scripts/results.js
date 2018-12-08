@@ -27,7 +27,7 @@ const handleResponse = (response) => {
 }
 
 $(document).ready(() => {
-  $.get('./php/index.php', (response) => {
+  $.get('../php/index.php', (response) => {
     return handleResponse(response);
   });
 })

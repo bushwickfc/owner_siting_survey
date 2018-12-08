@@ -31,7 +31,7 @@ const postData = () => {
   // Encode each layer as a geoJSON.
   featureLayerKeys.forEach(leafletId => features.push(featureLayers[leafletId].toGeoJSON()));
 
-  $.post('./php/insert.php', { features: JSON.stringify(features) }, (response) => {
+  $.post('../php/insert.php', { features: JSON.stringify(features) }, (response) => {
     return handleResponse(JSON.parse(response));
   });
 };
@@ -73,3 +73,15 @@ const clearMap = () => {
         featureGroup.removeLayer(this);
     });
 }
+
+$(document).ready(() => {
+  // The boundary for Bushwick should be found in assets/geo/bushwick_boundary.geojson...
+  // but if we can't find it, don't throw an error, it's not critical.
+  if (bushwickBoundary) {
+    L.geoJSON(bushwickBoundary).addTo(map);
+  }
+
+  if (bfc) {
+    L.geoJSON(bfc).addTo(map);
+  }
+})
