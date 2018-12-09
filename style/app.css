@@ -3,18 +3,8 @@ html, body {
 	box-sizing: border-box;
 }
 
-body {
-	padding: 0 60px;
-}
-
-.section {
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.centered {
-	margin-right: auto;
-	margin-left: auto;
+.row {
+	height: 100%;
 }
 
 .leaflet-touch .leaflet-bar a {
@@ -35,8 +25,8 @@ body {
 }
 
 #map {
-	height: 600px;
-	width: 75%;
+	height: 100%;
+	width: 100%;
 	border: 3px solid black;
 }
 

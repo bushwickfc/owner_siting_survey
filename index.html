@@ -5,6 +5,9 @@
 	<title>Owner Siting Survey - Bushwick Food Coop</title>
 	<link
 		rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+	<link
+		rel="stylesheet"
 		href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
 		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
 		crossorigin="" />
@@ -16,14 +19,25 @@
 		href="style/app.css" />
 </head>
 <body>
-	<div class="section">
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="section centered" id="map"></div>
+		</div>
+		<div class="col-sm-4">
+			<h1>Owner Siting Survey</h1>
+			<h3>Where would you go for the BFC?</h3>
+			<button id="submit">Submit</button>
+		</div>
+	</div>
+
+<!-- 	<div class="section">
 		<h1>Owner Siting Survey</h1>
 		<h3>Where would you go for the BFC?</h3>
 	</div>
 	<div class="section centered" id="map"></div>
 	<div class="section">
 		<button id="submit">Submit</button>
-	</div>
+	</div> -->
 	<script
 		src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
