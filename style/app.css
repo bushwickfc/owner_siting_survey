@@ -56,6 +56,11 @@ path.leaflet-interactive {
 	background-color: #007ACC;
 }
 
+#submit:disabled {
+	background-color: lightgray;
+	cursor: not-allowed;
+}
+
 .instructions {
 	margin: 40px 0;
 }
