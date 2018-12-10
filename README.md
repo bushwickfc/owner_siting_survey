@@ -38,9 +38,7 @@ Locally, I'm running this app at http://bushwickfc.owner_siting_survey.local
 
 ## Notes
 
-### Polygon closing issue
-
-The drawn polygons are supposed to 'finish' when the user clicks the first point they added - however, this feature was not working out-of-the-box. See https://github.com/Leaflet/Leaflet.draw/issues/670 - basically, had to additionally import Polyline and Polygon classes.
+https://stackoverflow.com/questions/48180282/how-to-populate-a-heroku-postgresql-database-with-a-sql-file
 
 ### Linting
 
