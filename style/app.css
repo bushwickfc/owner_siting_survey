@@ -24,6 +24,14 @@ html, body {
 	background-position: -235px 4px !important;
 }
 
+.leaflet-marker-icon {
+	cursor: grab !important;
+}
+
+path.leaflet-interactive {
+	cursor: grab !important;
+}
+
 #map {
 	height: 100%;
 	width: 100%;

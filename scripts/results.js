@@ -17,6 +17,7 @@ const handleResponse = (response) => {
 	}
 	const featureStyle = {
 		color: 'blue',
+		stroke: 0,
 	}
 
 	for (let i = 0; i < parsedResponse.length; i++) {
