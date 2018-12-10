@@ -55,3 +55,7 @@ path.leaflet-interactive {
 #submit:hover {
 	background-color: #007ACC;
 }
+
+.instructions {
+	margin: 40px 0;
+}
