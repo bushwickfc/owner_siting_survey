@@ -3,6 +3,10 @@ html, body {
 	box-sizing: border-box;
 }
 
+.container-fluid {
+	height: 100%;
+}
+
 .row {
 	height: 100%;
 }
@@ -30,6 +34,10 @@ html, body {
 
 path.leaflet-interactive {
 	cursor: grab !important;
+}
+
+.map-container {
+	padding-left: 0;
 }
 
 #map {
@@ -63,4 +71,18 @@ path.leaflet-interactive {
 
 .instructions {
 	margin: 40px 0;
+}
+
+.section {
+	font-size: 1.3rem;
+	margin: 40px 0;
+}
+
+.pentagon {
+	display: inline-block;
+	transform: rotate(-18deg);
+}
+
+.button-container {
+	text-align: center;
 }

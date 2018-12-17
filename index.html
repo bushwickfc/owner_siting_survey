@@ -19,19 +19,29 @@
 		href="style/app.css" />
 </head>
 <body>
-	<div class="row">
-		<div class="col-sm-8">
-			<div class="section centered" id="map"></div>
-		</div>
-		<div class="col-sm-4">
-			<h1>Owner Siting Survey</h1>
-			<h3>Where would you go for the BFC?</h3>
-			<div class="instructions">
-				<p>Use the polygon tool (the pentagon!) to draw areas on the map within which you'd be willing to travel to shop at the Co-op.</p>
-				<p>You can draw as many as you like, and edit/delete them with the other tools.</p>
-				<p>When you're finished, click the 'Submit' button below.</p>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-8 map-container">
+				<div id="map"></div>
 			</div>
-			<button id="submit">Submit</button>
+			<div class="col-sm-4">
+				<h1>Owner Siting Survey</h1>
+				<h3>Where would you go for the BFC?</h3>
+				<div class="instructions">
+					<div class="section">
+						Use the polygon tool (the pentagon! <div class="pentagon">&#x2B1F;</div>) to draw areas on the map within which you'd be willing to travel to shop at the Co-op.
+					</div>
+					<div class="section">
+						You can draw as many as you like, and edit/delete them with the other tools.
+					</div>
+					<div class="section">
+						When you're finished, click the 'Submit' button below.
+					</div>
+				</div>
+				<div class="button-container">
+					<button id="submit">Submit</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<script
