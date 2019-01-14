@@ -16,7 +16,7 @@ const handleResponse = (response) => {
     features: [],
   };
   const featureStyle = {
-    color: 'black',
+    color: 'darkblue',
     stroke: 0,
     fillOpacity: 0.03,
   };
