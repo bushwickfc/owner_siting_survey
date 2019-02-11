@@ -32,10 +32,6 @@ In local development, this app requires a root-level `credentials.php` file, for
 ?>
 ```
 
-## Use
-
-Locally, I'm running this app at http://bushwickfc.owner_siting_survey.local
-
 ## Notes
 
 https://stackoverflow.com/questions/48180282/how-to-populate-a-heroku-postgresql-database-with-a-sql-file
